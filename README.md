@@ -1,6 +1,10 @@
 # Powershell #
 **Powershell scripts**
 
+**Requirements**
+- Windows 10
+- PowerShell 5.0
+
 **PCInfo**
 
 This PoweShell script shows advanced information and details about some of your computer components.
