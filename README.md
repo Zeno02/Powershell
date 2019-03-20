@@ -12,4 +12,5 @@ You can also see the status of the components, if they are up or down.
 You simply run the script by clicking it, and then it will automatically load the information.
 
 **Feedback**
+
 Feedback about this script is appreciated.
