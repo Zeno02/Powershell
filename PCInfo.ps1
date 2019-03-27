@@ -1,4 +1,11 @@
-﻿CLS # Cleared je scherm
+  #Name: PCInfo
+	#Script URI: https://github.com/Zeno02/Powershell/PCINFO
+	#Description: Haalt informatie op over computeronderdelen
+	#Version: versie 1.0.0
+	#Author: Zeno Schoen
+	#Author URI: https://github.com/Zeno02
+
+CLS # Cleared je scherm
 Write-Host "-------------------- PC Info --------------------"
 $date = Get-Date
 Write-Host "Current Date and Time : " $date
