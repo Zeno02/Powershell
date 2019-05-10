@@ -1,5 +1,5 @@
 ﻿  #Name: IIS_Install
-	#Script URI: https://github.com/Zeno02/Powershell/PCINFO
+	#Script URI: https://github.com/Zeno02/Powershell/Install_IIS.ps1
 	#Description: Installeert IIS
 	#Version: versie 1.0.0
 	#Author: Zeno Schoen
