@@ -14,8 +14,8 @@ Install-WindowsFeature -Name PFSV1 `  -IncludeAllSubFeature `  -IncludeManagemen
 
 Catch {
 
-$From = "zeno_scgoen@hotmail.com"
-$To = "zeno_schoen@hotmail.com"
+$From = "enter email here"
+$To = "enter email here"
 $Cc = ""
 $Subject = "IIS Installatie"
 $Body = "IIS is met success geïnstalleerd."
