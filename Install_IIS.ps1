@@ -8,7 +8,7 @@
 
 Try {
 
-Install-WindowsFeature   `  -IncludeAllSubFeature `  -IncludeManagementTools
+Install-WindowsFeature   ` Web-Server `  -IncludeManagementTools
 
 }
 
