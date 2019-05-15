@@ -1,5 +1,5 @@
 ﻿  #Name: IIS_Install
-	#Script URI: https://github.com/Zeno02/Powershell/Install_IIS.ps1
+	#Script URI: https://github.com/Zeno02/Powershell/PCINFO
 	#Description: Installeert IIS
 	#Version: versie 1.0.0
 	#Author: Zeno Schoen
@@ -8,19 +8,36 @@
 
 Try {
 
-Install-WindowsFeature -Name PFSV1 `  -IncludeAllSubFeature `  -IncludeManagementTools
+Install-WindowsFeature   `  -IncludeAllSubFeature `  -IncludeManagementTools
 
 }
 
 Catch {
 
-$From = "enter email here"
-$To = "enter email here"
-$Cc = ""
-$Subject = "IIS Installatie"
-$Body = "IIS is met success geïnstalleerd."
-$SMTPServer = "smtp.office365.com"
-$SMTPPort = "587"
-Send-MailMessage -From $From -to $To -Cc $Cc -Subject $Subject -Body $Body -SmtpServer $SMTPServer -port $SMTPPort -UseSsl -Credential (Get-Credential) –DeliveryNotificationOption OnSuccess
 
+if( $Error = 1 ){
+    $FailMailParams = @{
+        To = 'email@gmail.com'
+        From = 'email@gmail.com'
+        Credential = New-Object System.Net.NetworkCredential("", "");
+        Port = '587'
+        SmtpServer = 'smtp.gmail.com'
+        Subject = 'Script Errors Out'
+        Body = 'Er is iets misgegaan met het script.'
+        }
+
+    Send-MailMessage @FailMailParams
+    } else {
+         $SuccessMailParams = @{
+        To = 'email@gmail.com'
+        From = 'email@gmail.com'
+        Credential = New-Object System.Net.NetworkCredential("", "");
+        Port = '587'
+        SmtpServer = 'smtp.gmail.com'
+        Subject = 'Success'
+        Body = 'Het script is succesvol uitgevoerd.'
+        }
+
+         Send-MailMessage @SuccessMailParams
+       }
 }
