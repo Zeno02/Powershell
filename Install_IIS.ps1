@@ -1,14 +1,29 @@
 ﻿  #Name: IIS_Install
-	#Script URI: https://github.com/Zeno02/Powershell/IIS_Install
+	#Script URI: https://github.com/Zeno02/Powershell/Install_IIS
 	#Description: Installeert IIS
-	#Version: versie 1.0.0
+	#Version: versie 1.0.2
 	#Author: Zeno Schoen
 	#Author URI: https://github.com/Zeno02
+
+$choice = Read-Host "Weet u zeker dat u IIS wilt installeren? <Y yes> / <N No>"
+
+if ($choice.ToLower() -eq "yes" -OR $choice.ToLower() -eq "y")
+{
+
+$OSInfo = (Get-ComputerInfo).OsProductType
+
+if ($OSInfo.OsProductType() -eq "WorkStation")
+
+{
+
+Write-Host "Je kan IIS niet installeren op een werkstation."
+
+}
 
 
 Try {
 
-Install-WindowsFeature   ` Web-Server `  -IncludeManagementTools
+Install-WindowsFeature  -name Web-Server  -IncludeManagementTools
 
 }
 
@@ -22,7 +37,7 @@ if( $Error = 1 ){
         Credential = New-Object System.Net.NetworkCredential("", "");
         Port = '587'
         SmtpServer = 'smtp.gmail.com'
-        Subject = 'Script Errors Out'
+        Subject = 'Script foutmelding'
         Body = 'Er is iets misgegaan met het script.'
         }
 
@@ -34,10 +49,12 @@ if( $Error = 1 ){
         Credential = New-Object System.Net.NetworkCredential("", "");
         Port = '587'
         SmtpServer = 'smtp.gmail.com'
-        Subject = 'Success'
+        Subject = 'Script succesvol'
         Body = 'Het script is succesvol uitgevoerd.'
         }
 
          Send-MailMessage @SuccessMailParams
        }
+}
+
 }
